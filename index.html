@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> <font color = "#f6eeee"> GRADING SYSTEM </font></h1>
+    <style>h1{text-align: center;} </style> 
+    <style>body {background-color: #432121;}</style>
+    <br><br>
+    
+    <h3><font color = "#f6eeee">Please enter your total marks and obtained marks to calculate your Percentage and Grade
+    </font> </H3>
+
+    <form onsubmit="dopercent(); return false"> <font color = "#f6eeee">
+        Obtained Marks: <input id="num1" type="number" required placeholder="Enter your total marks" >
+        <br><br><br>
+        Total Marks: <input id="num2" type="number" required placeholder="Enter your Total Marks" >
+        <button type="submit">submit</button>
+    </font>
+    </form>
+    <h3>Your Percentage is</h3>
+    <h3 id="result"></h3> 
+    <h3>Your Grade is</h3>
+    <h3 id="grade"></h3>
+
+    <script>
+        function dopercent(){
+            let firstNumber = +(document.querySelector("#num1").value)
+            let secondNumber = +(document.querySelector("#num2").value)
+            let percentage = (firstNumber*100)/secondNumber;
+            document.querySelector("#result").innerHTML = percentage;
+
+            let grading = document.querySelector("#grade");
+            if(percentage <= 100){
+            
+                if(percentage >=90){
+                    if(percentage >= 95){
+                        grading.innerHTML = "A+"
+                    }
+                    else{grading.innerHTML = 'A'}
+                }
+
+                else if(percentage >= 80){
+                grading.innerHTML = 'B'
+                }
+
+                else if(percentage >= 70){
+                grading.innerHTML = 'C'
+                }
+
+                else if(percentage >= 60){
+                grading.innerHTML = 'D'
+                }
+
+                else if(percentage >= 50){
+                grading.innerHTML = 'E'
+                }
+
+                else{grading.innerHTML = 'F'}
+        }
+            else {grading.innerHTML = "Invalid Marks! Please enter your correct marks"}
+        }
+    
+    </script>
+     
+</body>
+</html>
